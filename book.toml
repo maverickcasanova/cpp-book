@@ -3,7 +3,7 @@ authors = ["Glyn Normington"]
 language = "en"
 multilingual = false
 src = "src"
-title = "The Little Book of CPP"
+title = "The Book of CPP"
 
 [output.html]
 curly-quotes = true
