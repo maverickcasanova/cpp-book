@@ -2,6 +2,6 @@
 
 [Introduction](./title-page.md)
 
-- [Official Rust Books](./official.md)
-- [Unofficial Rust Books](./unofficial.md)
-- [Rust Application Books](./applications.md)
+- [Official CPP Books](./official.md)
+- [Unofficial CPP Books](./unofficial.md)
+- [Rust CPP Books](./applications.md)
