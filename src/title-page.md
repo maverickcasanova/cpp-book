@@ -1,4 +1,4 @@
-# The Little Book of Rust Books
+# The Little Book of CPP
 
 This book is a treasure-trove of Rust books:
 * [Official books](./official.md) maintained at [rust-lang.org](https://www.rust-lang.org/)
