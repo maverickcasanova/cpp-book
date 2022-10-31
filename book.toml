@@ -3,7 +3,7 @@ authors = ["Glyn Normington"]
 language = "en"
 multilingual = false
 src = "src"
-title = "The Book of Modern CPP"
+title = "The Book of Modern C++"
 
 [output.html]
 curly-quotes = true
