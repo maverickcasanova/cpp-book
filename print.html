@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="title-page.html">The book of Modern C++</a></li><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="title-page.html">The book of Modern C++</a></li><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li><li class="chapter-item expanded "><a href="chapter_2.html"><strong aria-hidden="true">2.</strong> Chapter 2</a></li><li class="chapter-item expanded "><a href="chapter_3.html"><strong aria-hidden="true">3.</strong> Chapter 3</a></li><li class="chapter-item expanded "><a href="chapter_4.html"><strong aria-hidden="true">4.</strong> Chapter 4</a></li><li class="chapter-item expanded "><a href="chapter_5.html"><strong aria-hidden="true">5.</strong> Chapter 5</a></li><li class="chapter-item expanded "><a href="chapter_6.html"><strong aria-hidden="true">6.</strong> Chapter 6</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -167,6 +167,175 @@ int main()
 {
   std::cout &lt;&lt; &quot;Hello World&quot;;
 }
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-2"><a class="header" href="#chapter-2">Chapter 2</a></h1>
+<h2 id="printing-different-values-of-char"><a class="header" href="#printing-different-values-of-char">Printing different values of char</a></h2>
+<h3 id="in-c--2"><a class="header" href="#in-c--2">In C :</a></h3>
+<p>Printing decimal value.</p>
+<pre><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+  char mychar;
+  mychar = 'a';
+  printf(&quot;Decimal: %d Octal: %o Hexadecimal: %X&quot;, mychar, mychar, mychar);
+}
+</code></pre>
+<p>Priting ASCII value</p>
+<pre><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+  char mychar;
+  mychar = 'a';
+  printf(&quot;%c&quot;, mychar);
+}
+</code></pre>
+<h3 id="in-c--3"><a class="header" href="#in-c--3">In C++ :</a></h3>
+<p>cout automatically prints ASCII value</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main()
+{
+  char mychar;
+  mychar = 'a';
+  std::cout &lt;&lt; mychar;
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-3"><a class="header" href="#chapter-3">Chapter 3</a></h1>
+<h2 id="printing-different-values-of-int"><a class="header" href="#printing-different-values-of-int">Printing different values of int</a></h2>
+<h3 id="in-c--4"><a class="header" href="#in-c--4">In C :</a></h3>
+<pre><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+        int x = 123;
+        int y = -256;
+        printf(&quot;The value of an unsigned integer is: %d, %d&quot;, x, y);
+}
+
+</code></pre>
+<p>However also provides support for unsigned int.</p>
+<pre><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+        unsigned int x = 123;
+        unsigned int y = -256;
+        printf(&quot;The value of an unsigned integer is: %u, %u&quot;, x, y);
+}
+
+</code></pre>
+<h3 id="in-c--5"><a class="header" href="#in-c--5">In C++ :</a></h3>
+<pre><code>#include &lt;iostream&gt;
+
+int main()
+{
+        int x = 123;
+        int y = -256;
+        std::cout &lt;&lt; &quot;The value of x is: &quot; &lt;&lt; x &lt;&lt; &quot;, the value of y is: &quot; &lt;&lt; y;
+}
+
+
+
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-4"><a class="header" href="#chapter-4">Chapter 4</a></h1>
+<h2 id="printing-different-values-of-float"><a class="header" href="#printing-different-values-of-float">Printing different values of float</a></h2>
+<h3 id="in-c--6"><a class="header" href="#in-c--6">In C :</a></h3>
+<pre><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+        float myfloat;
+        myfloat = 123.456;
+        printf(&quot;The value of a floating-point variable is: %f&quot;, myfloat);
+}
+</code></pre>
+<h3 id="in-c--7"><a class="header" href="#in-c--7">In C++ :</a></h3>
+<pre><code>#include &lt;iostream&gt;
+
+int main()
+{
+        float myfloat;
+        myfloat = 123.456;
+        std::cout &lt;&lt; &quot;The value of d is: &quot; &lt;&lt; myfloat;
+}
+         
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-5"><a class="header" href="#chapter-5">Chapter 5</a></h1>
+<h2 id="pointer-and-references"><a class="header" href="#pointer-and-references">Pointer and References</a></h2>
+<h3 id="in-c--8"><a class="header" href="#in-c--8">In C :</a></h3>
+<p>Pointers in C </p>
+<pre><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+        int x = 123;
+        printf(&quot;The value before the change: %d\n&quot;, x);
+        int* p = &amp;x;
+        *p = 456;
+        printf(&quot;The value after the change: %d\n&quot;, x);
+}
+
+
+</code></pre>
+<h3 id="in-c--9"><a class="header" href="#in-c--9">In C++ :</a></h3>
+<p>Pointers in C++ remain same as in C.</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main()
+{
+        int x = 123;
+        std::cout &lt;&lt; &quot;The value before the change: &quot; &lt;&lt; x;
+        int* p = &amp;x;
+        *p = 456;
+        std::cout &lt;&lt; &quot;The value after the change: &quot; &lt;&lt; x;
+}
+</code></pre>
+<p>However we prefer to use references in C++ rather than raw pointers.</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main()
+{
+        int x = 123;
+        int&amp; y = x;
+        x = 456;
+        // both x and y now hold the value of 456
+        y = 789;
+        // both x and y now hold the value of 789
+}
+
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-6"><a class="header" href="#chapter-6">Chapter 6</a></h1>
+<h2 id="printing-strings"><a class="header" href="#printing-strings">Printing strings</a></h2>
+<h3 id="in-c--10"><a class="header" href="#in-c--10">In C :</a></h3>
+<pre><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+        char* p = &quot;Hello World!&quot;;
+        printf(&quot;%s&quot;, p);
+}
+</code></pre>
+<pre><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+        char* p = &quot;Hello World!&quot;;
+        printf(&quot;%c&quot;, *p);
+}
+
+</code></pre>
+<h3 id="in-c--11"><a class="header" href="#in-c--11">In C++ :</a></h3>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+int main()
+{
+        std::string s = &quot;Hello World.&quot;;
+        std::cout &lt;&lt; s;
+}
+
 </code></pre>
 
                     </main>
