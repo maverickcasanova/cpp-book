@@ -474,6 +474,22 @@ int main() {
 
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-9"><a class="header" href="#chapter-9">Chapter 9</a></h1>
+<h2 id="templates-only-in-c"><a class="header" href="#templates-only-in-c">Templates (Only in C++)</a></h2>
+<h3 id="function-templates-"><a class="header" href="#function-templates-">Function Templates :</a></h3>
+<pre><code>#include &lt;iostream&gt;
+
+template &lt;class T&gt;
+T largest(T n1, T n2) {
+    return (n1 &gt; n2) ? n1 : n2;
+}
+
+int main() {
+    int x = 2;
+    int y = 3;
+    std::cout &lt;&lt; largest(x, y) &lt;&lt; std::endl;
+    return 0;
+}
+</code></pre>
 
                     </main>
 
