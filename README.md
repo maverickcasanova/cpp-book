@@ -1,6 +1,6 @@
-# The Little Book of Rust Books
+# The Little Book of C/C++
 
-A catalogue of Rust mdbooks.
+A catalogue of C/C++ mdbooks.
 
 ## Pull Requests
 
