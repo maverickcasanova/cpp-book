@@ -310,6 +310,32 @@ int main(void)
 
 
 </code></pre>
+<p>When passing to function</p>
+<pre><code>#include &lt;stdio.h&gt;
+
+// Double the number passed in as 'x'.
+int double_number_a(int x) {
+    return 2 * x;
+}
+
+// Double the number pointed to by 'x'.
+void double_number_b(int* x) {
+    *x *= 2;
+}
+
+int main() {
+    int num = 5;
+    
+    printf(&quot;%d\n&quot;, double_number_a(num));
+    printf(&quot;%d\n&quot;, num);
+
+    double_number_b(&amp;num);
+    printf(&quot;%d\n&quot;, num);
+    
+    return 0;
+}
+
+</code></pre>
 <h3 id="in-c--11"><a class="header" href="#in-c--11">In C++ :</a></h3>
 <p>Pointers in C++ remain same as in C.</p>
 <pre><code>#include &lt;iostream&gt;
@@ -334,6 +360,40 @@ int main()
         // both x and y now hold the value of 456
         y = 789;
         // both x and y now hold the value of 789
+}
+
+</code></pre>
+<p>When passing to function</p>
+<pre><code>#include &lt;iostream&gt;
+
+// Double the number passed in as 'x'.
+int double_number_a(int x) {
+    return 2 * x;
+}
+
+// Double the number pointed to by 'x'.
+void double_number_b(int* x) {
+    *x *= 2;
+}
+
+// Double the number pointed to by 'x'.
+void double_number_c(int&amp; x) {
+    x *= 2;
+}
+
+int main() {
+    auto num = 5;
+    
+    std::cout &lt;&lt; double_number_a(num) &lt;&lt; std::endl;
+    std::cout &lt;&lt; num &lt;&lt; std::endl;
+    
+    double_number_b(&amp;num);
+    std::cout &lt;&lt; num &lt;&lt; std::endl;
+    
+    double_number_c(num);
+    std::cout &lt;&lt; num &lt;&lt; std::endl;
+
+    return 0;
 }
 
 </code></pre>
