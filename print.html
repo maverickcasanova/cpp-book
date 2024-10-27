@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="title-page.html">The book of Modern C++</a></li><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li><li class="chapter-item expanded "><a href="chapter_2.html"><strong aria-hidden="true">2.</strong> Chapter 2</a></li><li class="chapter-item expanded "><a href="chapter_3.html"><strong aria-hidden="true">3.</strong> Chapter 3</a></li><li class="chapter-item expanded "><a href="chapter_4.html"><strong aria-hidden="true">4.</strong> Chapter 4</a></li><li class="chapter-item expanded "><a href="chapter_5.html"><strong aria-hidden="true">5.</strong> Chapter 5</a></li><li class="chapter-item expanded "><a href="chapter_6.html"><strong aria-hidden="true">6.</strong> Chapter 6</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="title-page.html">The book of Modern C++</a></li><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li><li class="chapter-item expanded "><a href="chapter_2.html"><strong aria-hidden="true">2.</strong> Chapter 2</a></li><li class="chapter-item expanded "><a href="chapter_3.html"><strong aria-hidden="true">3.</strong> Chapter 3</a></li><li class="chapter-item expanded "><a href="chapter_4.html"><strong aria-hidden="true">4.</strong> Chapter 4</a></li><li class="chapter-item expanded "><a href="chapter_5.html"><strong aria-hidden="true">5.</strong> Chapter 5</a></li><li class="chapter-item expanded "><a href="chapter_6.html"><strong aria-hidden="true">6.</strong> Chapter 6</a></li><li class="chapter-item expanded "><a href="chapter_7.html"><strong aria-hidden="true">7.</strong> Chapter 7</a></li><li class="chapter-item expanded "><a href="chapter_8.html"><strong aria-hidden="true">8.</strong> Chapter 8</a></li><li class="chapter-item expanded "><a href="chapter_9.html"><strong aria-hidden="true">9.</strong> Chapter 9</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -397,6 +397,83 @@ int main() {
 }
 
 </code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-7"><a class="header" href="#chapter-7">Chapter 7</a></h1>
+<h2 id="array"><a class="header" href="#array">Array</a></h2>
+<h3 id="in-c--12"><a class="header" href="#in-c--12">In C :</a></h3>
+<pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int my_array[5];
+
+    size_t len = sizeof(my_array) / sizeof(my_array[0]);
+    for(size_t i = 0; i &lt; len; i++) {
+        my_array[i] = i;
+    }
+
+    printf(&quot;%d\n&quot;, my_array[2]);
+    return 0;
+}
+
+</code></pre>
+<h3 id="in-c--13"><a class="header" href="#in-c--13">In C++ :</a></h3>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;array&gt;
+
+int main() {
+    std::array&lt;int, 5&gt; my_array;
+
+    for(size_t i = 0; i &lt; my_array.size(); i++) {
+        my_array[i] = i;
+    }
+
+    std::cout &lt;&lt; my_array[2] &lt;&lt; std::endl;
+    return 0;
+}
+
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-8"><a class="header" href="#chapter-8">Chapter 8</a></h1>
+<h2 id="loops"><a class="header" href="#loops">Loops</a></h2>
+<h3 id="in-c--14"><a class="header" href="#in-c--14">In C :</a></h3>
+<pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int a[] = {4, 5, 6, 7};
+    for(int i = 1; i &lt;= 3; i++)
+    {
+        printf(&quot;%d\n&quot;, a[i]);
+    }
+    return 0;
+}
+
+</code></pre>
+<h3 id="in-c--15"><a class="header" href="#in-c--15">In C++ :</a></h3>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int a[] = {4, 5, 6, 7};
+
+    for(auto i : a)
+    {
+        std::cout &lt;&lt; i &lt;&lt; std::endl;
+    }
+    return 0;
+}
+
+</code></pre>
+<pre><code>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+ 
+int main() {
+    std::vector&lt;int&gt; v = {0, 1, 2, 3};
+    for(auto i : v) { // access using const reference
+        std::cout &lt;&lt; i &lt;&lt; std::endl;
+    }
+    return 0;
+}
+
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-9"><a class="header" href="#chapter-9">Chapter 9</a></h1>
 
                     </main>
 
