@@ -147,7 +147,60 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="chapter-11"><a class="header" href="#chapter-11">Chapter 11</a></h1>
-<h2 id="struct--classes"><a class="header" href="#struct--classes">Struct &amp; Classes</a></h2>
+<h2 id="struct"><a class="header" href="#struct">Struct</a></h2>
+<h3 id="in-c-"><a class="header" href="#in-c-">In C :</a></h3>
+<pre><code>#include &lt;stdio.h&gt;
+
+struct my_struct {
+    int x;
+    int y;
+};
+
+int main() {
+    struct my_struct object1;
+    object1.x = 1;
+    printf(&quot;%d\n&quot;, object1.x);
+    return 0;
+}
+
+</code></pre>
+<h3 id="in-c--1"><a class="header" href="#in-c--1">In C++ :</a></h3>
+<pre><code>#include &lt;iostream&gt;
+
+struct my_struct {
+    int x;
+    int y;
+};
+
+int main() {
+    struct my_struct object1;
+    object1.x = 1;
+    std::cout &lt;&lt; object1.x &lt;&lt; std::endl;
+    return 0;
+}
+
+</code></pre>
+<h2 id="classes-in-c-only-"><a class="header" href="#classes-in-c-only-">Classes (In C++ Only) :</a></h2>
+<pre><code>
+#include &lt;iostream&gt;
+
+class human {
+public:
+    int height;
+    int weight;
+};
+
+int main() {
+    human john;
+    john.height = 180;
+    john.weight = 220;
+
+    std::cout &lt;&lt; john.height &lt;&lt; std::endl;
+
+    return 0;
+}
+
+</code></pre>
 
                     </main>
 
