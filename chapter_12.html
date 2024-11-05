@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>The book of Modern C++ - The Book of Modern C++</title>
+        <title>Constructors &amp; Destructors - The Book of Modern C++</title>
                 
 
         <!-- Custom HTML head -->
@@ -82,7 +82,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="title-page.html" class="active">The book of Modern C++</a></li><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Hello World</a></li><li class="chapter-item expanded "><a href="chapter_2.html"><strong aria-hidden="true">2.</strong> Printing values INT</a></li><li class="chapter-item expanded "><a href="chapter_3.html"><strong aria-hidden="true">3.</strong> Printing values CHAR</a></li><li class="chapter-item expanded "><a href="chapter_4.html"><strong aria-hidden="true">4.</strong> Printing values FLOAT</a></li><li class="chapter-item expanded "><a href="chapter_5.html"><strong aria-hidden="true">5.</strong> Strings</a></li><li class="chapter-item expanded "><a href="chapter_6.html"><strong aria-hidden="true">6.</strong> Pointer and References</a></li><li class="chapter-item expanded "><a href="chapter_7.html"><strong aria-hidden="true">7.</strong> Array</a></li><li class="chapter-item expanded "><a href="chapter_8.html"><strong aria-hidden="true">8.</strong> Loops</a></li><li class="chapter-item expanded "><a href="chapter_9.html"><strong aria-hidden="true">9.</strong> Templates</a></li><li class="chapter-item expanded "><a href="chapter_10.html"><strong aria-hidden="true">10.</strong> Lambda Functions</a></li><li class="chapter-item expanded "><a href="chapter_11.html"><strong aria-hidden="true">11.</strong> Structs and Classes</a></li><li class="chapter-item expanded "><a href="chapter_12.html"><strong aria-hidden="true">12.</strong> Constructors &amp; Destructors</a></li><li class="chapter-item expanded "><a href="chapter_13.html"><strong aria-hidden="true">13.</strong> Link Lists</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="title-page.html">The book of Modern C++</a></li><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Hello World</a></li><li class="chapter-item expanded "><a href="chapter_2.html"><strong aria-hidden="true">2.</strong> Printing values INT</a></li><li class="chapter-item expanded "><a href="chapter_3.html"><strong aria-hidden="true">3.</strong> Printing values CHAR</a></li><li class="chapter-item expanded "><a href="chapter_4.html"><strong aria-hidden="true">4.</strong> Printing values FLOAT</a></li><li class="chapter-item expanded "><a href="chapter_5.html"><strong aria-hidden="true">5.</strong> Strings</a></li><li class="chapter-item expanded "><a href="chapter_6.html"><strong aria-hidden="true">6.</strong> Pointer and References</a></li><li class="chapter-item expanded "><a href="chapter_7.html"><strong aria-hidden="true">7.</strong> Array</a></li><li class="chapter-item expanded "><a href="chapter_8.html"><strong aria-hidden="true">8.</strong> Loops</a></li><li class="chapter-item expanded "><a href="chapter_9.html"><strong aria-hidden="true">9.</strong> Templates</a></li><li class="chapter-item expanded "><a href="chapter_10.html"><strong aria-hidden="true">10.</strong> Lambda Functions</a></li><li class="chapter-item expanded "><a href="chapter_11.html"><strong aria-hidden="true">11.</strong> Structs and Classes</a></li><li class="chapter-item expanded "><a href="chapter_12.html" class="active"><strong aria-hidden="true">12.</strong> Constructors &amp; Destructors</a></li><li class="chapter-item expanded "><a href="chapter_13.html"><strong aria-hidden="true">13.</strong> Link Lists</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -146,15 +146,224 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="the-book-of-modern-c"><a class="header" href="#the-book-of-modern-c">The Book of Modern C++</a></h1>
-<p>This book is a guidance for people moving from C to C++ to Modern C++.</p>
+                        <h1 id="chapter-12"><a class="header" href="#chapter-12">Chapter 12</a></h1>
+<h2 id="constructor--destructor"><a class="header" href="#constructor--destructor">Constructor &amp; Destructor</a></h2>
+<h3 id="in-c-"><a class="header" href="#in-c-">In C++ :</a></h3>
+<pre><code>#include &lt;iostream&gt;
+
+class human {
+public:
+    int height;
+    int weight;
+    human(int h, int w) {
+        height = h;
+        weight = w;
+    }
+    ~human(){};
+    int get_height() const {
+        return height;
+    }
+    int get_weight() const {
+        return weight;
+    }
+};
+
+int main() {
+    human obj(180, 220);
+    std::cout &lt;&lt; obj.get_height() &lt;&lt; std::endl;
+    std::cout &lt;&lt; obj.get_weight() &lt;&lt; std::endl;
+    return 0;
+}
+
+</code></pre>
+<h4 id="access-control-by-encapsulation"><a class="header" href="#access-control-by-encapsulation">Access control by Encapsulation</a></h4>
+<pre><code>
+#include &lt;iostream&gt;
+
+class human {
+private: // abstracted from the user
+    int m_h;
+    int m_w;
+public: 
+    human(int h, int w) {
+        m_h = h;
+        m_w = w;
+    }
+    int get_h() const {
+        return m_h;
+    }
+    int get_w() const {
+        return m_w;
+    }
+    void set_h_w(int h, int w) {
+        m_h = h;
+        m_w = w;
+    }
+
+};
+
+int main() {
+    human obj(180, 220);
+
+    std::cout &lt;&lt; obj.get_h() &lt;&lt; std::endl;
+    std::cout &lt;&lt; obj.get_w() &lt;&lt; std::endl;
+    
+    obj.set_h_w(18, 22);
+    
+    std::cout &lt;&lt; obj.get_h() &lt;&lt; std::endl;
+    std::cout &lt;&lt; obj.get_w() &lt;&lt; std::endl;
+
+    return 0;
+}
+
+</code></pre>
+<h4 id="inheritance"><a class="header" href="#inheritance">Inheritance</a></h4>
+<pre><code>
+
+#include &lt;iostream&gt;
+
+class human {
+public:
+    int height;
+    int weight;
+public: 
+    human(int h, int w) {
+        height = h;
+        weight = w;
+    }
+    int get_height() const {
+        return height;
+    }
+    int get_weight() const {
+        return weight;
+    }
+};
+
+class adult : public human { // inherit from human class
+public:
+    std::string occupation;
+public:
+    adult(int h, int w) : human(h, w) {
+       occupation = &quot;doctor&quot;; 
+    } // call the base class constructor from this constructor
+
+    std::string get_occupation() const {
+        return occupation;
+    }   
+};
+
+int main() {
+    adult obj(180, 220);  // object of derived class
+    std::cout &lt;&lt; obj.get_occupation() &lt;&lt; std::endl;
+
+    obj.occupation = &quot;lawyer&quot;;
+    
+    std::cout &lt;&lt; obj.get_height() &lt;&lt; std::endl;
+    std::cout &lt;&lt; obj.get_weight() &lt;&lt; std::endl;
+    std::cout &lt;&lt; obj.get_occupation() &lt;&lt; std::endl;
+    
+    return 0;
+}
+
+</code></pre>
+<h4 id="polymorphism"><a class="header" href="#polymorphism">Polymorphism</a></h4>
+<pre><code>
+#include &lt;iostream&gt;
+
+class human {
+public:
+    int height;
+    float weight;
+    
+    human(int h, int w) {
+        height = h;
+        weight = w;
+    }
+};
+
+//print with int argument
+void print(int x) {
+    std::cout &lt;&lt; x &lt;&lt; std::endl;
+}
+
+//print with float argument
+void print(float x) {
+    std::cout &lt;&lt; x  &lt;&lt; std::endl;
+}
+
+int main() {
+    human obj(180, 220);
+    
+    print(obj.height);
+    
+    print(obj.weight);
+    return 0;
+}
+
+</code></pre>
+<h4 id="function-polymorphism"><a class="header" href="#function-polymorphism">Function Polymorphism</a></h4>
+<pre><code>
+#include &lt;iostream&gt;
+
+class human {
+public:
+    int height;
+    int weight;
+public: 
+    human(int h, int w) {
+        height = h;
+        weight = w;
+    }
+    int get_height() const {
+        return height;
+    }
+    int get_weight() const {
+        return weight;
+    }
+    virtual void print_all() = 0; // ()=0 creates a _pure_ virtual function that must be overridden.
+    //Alternatively you can just write a default function as a virtual function with no requirement to be overwritten.
+};
+
+class adult : public human { // inherit from human class
+public:
+    std::string occupation;
+public:
+    adult(int h, int w) : human(h, w) {
+       occupation = &quot;doctor&quot;; 
+    } // call the base class constructor from this constructor
+
+    std::string get_occupation() const {
+        return occupation;
+    }   
+
+    void print_all() { // virtual function overridden in derived class
+        std::cout &lt;&lt; height &lt;&lt; std::endl;
+        std::cout &lt;&lt; weight &lt;&lt; std::endl;
+        std::cout &lt;&lt; occupation &lt;&lt; std::endl;
+    }
+};
+
+int main() {
+    adult obj(180, 220); // object of derived class
+    std::cout &lt;&lt; obj.get_occupation() &lt;&lt; std::endl;
+    
+    obj.occupation = &quot;lawyer&quot;;
+    
+    obj.print_all();
+    return 0;
+}
+
+</code></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="chapter_11.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
                         
-                                                    <a rel="next" href="chapter_1.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                                    <a rel="next" href="chapter_13.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -164,8 +373,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="chapter_11.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
                 
-                                    <a rel="next" href="chapter_1.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                    <a rel="next" href="chapter_13.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                             </nav>

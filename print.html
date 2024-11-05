@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="title-page.html">The book of Modern C++</a></li><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Hello World</a></li><li class="chapter-item expanded "><a href="chapter_2.html"><strong aria-hidden="true">2.</strong> Printing values INT</a></li><li class="chapter-item expanded "><a href="chapter_3.html"><strong aria-hidden="true">3.</strong> Printing values CHAR</a></li><li class="chapter-item expanded "><a href="chapter_4.html"><strong aria-hidden="true">4.</strong> Printing values FLOAT</a></li><li class="chapter-item expanded "><a href="chapter_5.html"><strong aria-hidden="true">5.</strong> Strings</a></li><li class="chapter-item expanded "><a href="chapter_6.html"><strong aria-hidden="true">6.</strong> Pointer and References</a></li><li class="chapter-item expanded "><a href="chapter_7.html"><strong aria-hidden="true">7.</strong> Array</a></li><li class="chapter-item expanded "><a href="chapter_8.html"><strong aria-hidden="true">8.</strong> Loops</a></li><li class="chapter-item expanded "><a href="chapter_9.html"><strong aria-hidden="true">9.</strong> Templates</a></li><li class="chapter-item expanded "><a href="chapter_10.html"><strong aria-hidden="true">10.</strong> Lambda Functions</a></li><li class="chapter-item expanded "><a href="chapter_11.html"><strong aria-hidden="true">11.</strong> Structs and Classes</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="title-page.html">The book of Modern C++</a></li><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Hello World</a></li><li class="chapter-item expanded "><a href="chapter_2.html"><strong aria-hidden="true">2.</strong> Printing values INT</a></li><li class="chapter-item expanded "><a href="chapter_3.html"><strong aria-hidden="true">3.</strong> Printing values CHAR</a></li><li class="chapter-item expanded "><a href="chapter_4.html"><strong aria-hidden="true">4.</strong> Printing values FLOAT</a></li><li class="chapter-item expanded "><a href="chapter_5.html"><strong aria-hidden="true">5.</strong> Strings</a></li><li class="chapter-item expanded "><a href="chapter_6.html"><strong aria-hidden="true">6.</strong> Pointer and References</a></li><li class="chapter-item expanded "><a href="chapter_7.html"><strong aria-hidden="true">7.</strong> Array</a></li><li class="chapter-item expanded "><a href="chapter_8.html"><strong aria-hidden="true">8.</strong> Loops</a></li><li class="chapter-item expanded "><a href="chapter_9.html"><strong aria-hidden="true">9.</strong> Templates</a></li><li class="chapter-item expanded "><a href="chapter_10.html"><strong aria-hidden="true">10.</strong> Lambda Functions</a></li><li class="chapter-item expanded "><a href="chapter_11.html"><strong aria-hidden="true">11.</strong> Structs and Classes</a></li><li class="chapter-item expanded "><a href="chapter_12.html"><strong aria-hidden="true">12.</strong> Constructors &amp; Destructors</a></li><li class="chapter-item expanded "><a href="chapter_13.html"><strong aria-hidden="true">13.</strong> Link Lists</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -568,11 +568,257 @@ public:
 };
 
 int main() {
-    human john;
-    john.height = 180;
-    john.weight = 220;
+    human obj;
+    obj.height = 180;
+    obj.weight = 220;
 
     std::cout &lt;&lt; john.height &lt;&lt; std::endl;
+
+    return 0;
+}
+
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-12"><a class="header" href="#chapter-12">Chapter 12</a></h1>
+<h2 id="constructor--destructor"><a class="header" href="#constructor--destructor">Constructor &amp; Destructor</a></h2>
+<h3 id="in-c--18"><a class="header" href="#in-c--18">In C++ :</a></h3>
+<pre><code>#include &lt;iostream&gt;
+
+class human {
+public:
+    int height;
+    int weight;
+    human(int h, int w) {
+        height = h;
+        weight = w;
+    }
+    ~human(){};
+    int get_height() const {
+        return height;
+    }
+    int get_weight() const {
+        return weight;
+    }
+};
+
+int main() {
+    human obj(180, 220);
+    std::cout &lt;&lt; obj.get_height() &lt;&lt; std::endl;
+    std::cout &lt;&lt; obj.get_weight() &lt;&lt; std::endl;
+    return 0;
+}
+
+</code></pre>
+<h4 id="access-control-by-encapsulation"><a class="header" href="#access-control-by-encapsulation">Access control by Encapsulation</a></h4>
+<pre><code>
+#include &lt;iostream&gt;
+
+class human {
+private: // abstracted from the user
+    int m_h;
+    int m_w;
+public: 
+    human(int h, int w) {
+        m_h = h;
+        m_w = w;
+    }
+    int get_h() const {
+        return m_h;
+    }
+    int get_w() const {
+        return m_w;
+    }
+    void set_h_w(int h, int w) {
+        m_h = h;
+        m_w = w;
+    }
+
+};
+
+int main() {
+    human obj(180, 220);
+
+    std::cout &lt;&lt; obj.get_h() &lt;&lt; std::endl;
+    std::cout &lt;&lt; obj.get_w() &lt;&lt; std::endl;
+    
+    obj.set_h_w(18, 22);
+    
+    std::cout &lt;&lt; obj.get_h() &lt;&lt; std::endl;
+    std::cout &lt;&lt; obj.get_w() &lt;&lt; std::endl;
+
+    return 0;
+}
+
+</code></pre>
+<h4 id="inheritance"><a class="header" href="#inheritance">Inheritance</a></h4>
+<pre><code>
+
+#include &lt;iostream&gt;
+
+class human {
+public:
+    int height;
+    int weight;
+public: 
+    human(int h, int w) {
+        height = h;
+        weight = w;
+    }
+    int get_height() const {
+        return height;
+    }
+    int get_weight() const {
+        return weight;
+    }
+};
+
+class adult : public human { // inherit from human class
+public:
+    std::string occupation;
+public:
+    adult(int h, int w) : human(h, w) {
+       occupation = &quot;doctor&quot;; 
+    } // call the base class constructor from this constructor
+
+    std::string get_occupation() const {
+        return occupation;
+    }   
+};
+
+int main() {
+    adult obj(180, 220);  // object of derived class
+    std::cout &lt;&lt; obj.get_occupation() &lt;&lt; std::endl;
+
+    obj.occupation = &quot;lawyer&quot;;
+    
+    std::cout &lt;&lt; obj.get_height() &lt;&lt; std::endl;
+    std::cout &lt;&lt; obj.get_weight() &lt;&lt; std::endl;
+    std::cout &lt;&lt; obj.get_occupation() &lt;&lt; std::endl;
+    
+    return 0;
+}
+
+</code></pre>
+<h4 id="polymorphism"><a class="header" href="#polymorphism">Polymorphism</a></h4>
+<pre><code>
+#include &lt;iostream&gt;
+
+class human {
+public:
+    int height;
+    float weight;
+    
+    human(int h, int w) {
+        height = h;
+        weight = w;
+    }
+};
+
+//print with int argument
+void print(int x) {
+    std::cout &lt;&lt; x &lt;&lt; std::endl;
+}
+
+//print with float argument
+void print(float x) {
+    std::cout &lt;&lt; x  &lt;&lt; std::endl;
+}
+
+int main() {
+    human obj(180, 220);
+    
+    print(obj.height);
+    
+    print(obj.weight);
+    return 0;
+}
+
+</code></pre>
+<h4 id="function-polymorphism"><a class="header" href="#function-polymorphism">Function Polymorphism</a></h4>
+<pre><code>
+#include &lt;iostream&gt;
+
+class human {
+public:
+    int height;
+    int weight;
+public: 
+    human(int h, int w) {
+        height = h;
+        weight = w;
+    }
+    int get_height() const {
+        return height;
+    }
+    int get_weight() const {
+        return weight;
+    }
+    virtual void print_all() = 0; // ()=0 creates a _pure_ virtual function that must be overridden.
+    //Alternatively you can just write a default function as a virtual function with no requirement to be overwritten.
+};
+
+class adult : public human { // inherit from human class
+public:
+    std::string occupation;
+public:
+    adult(int h, int w) : human(h, w) {
+       occupation = &quot;doctor&quot;; 
+    } // call the base class constructor from this constructor
+
+    std::string get_occupation() const {
+        return occupation;
+    }   
+
+    void print_all() { // virtual function overridden in derived class
+        std::cout &lt;&lt; height &lt;&lt; std::endl;
+        std::cout &lt;&lt; weight &lt;&lt; std::endl;
+        std::cout &lt;&lt; occupation &lt;&lt; std::endl;
+    }
+};
+
+int main() {
+    adult obj(180, 220); // object of derived class
+    std::cout &lt;&lt; obj.get_occupation() &lt;&lt; std::endl;
+    
+    obj.occupation = &quot;lawyer&quot;;
+    
+    obj.print_all();
+    return 0;
+}
+
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-13"><a class="header" href="#chapter-13">Chapter 13</a></h1>
+<h2 id="linked-list"><a class="header" href="#linked-list">Linked List</a></h2>
+<h3 id="in-c--19"><a class="header" href="#in-c--19">In C :</a></h3>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+struct Node* createNode(int data) {
+    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+    newNode-&gt;data = data;
+    newNode-&gt;next = NULL;
+    return newNode;
+}
+
+void printList(struct Node* head) {
+    struct Node* curr = head;
+    while (curr != NULL) {
+        printf(&quot;%d -&gt; &quot;, curr-&gt;data);
+        curr = curr-&gt;next;
+    }
+    printf(&quot;NULL\n&quot;);
+}
+
+int main() {
+    struct Node* head = NULL;
+    
+    head = createNode(5);
+    printList(head);
+
 
     return 0;
 }
