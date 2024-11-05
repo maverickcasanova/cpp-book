@@ -53,9 +53,9 @@ public:
 };
 
 int main() {
-    human john;
-    john.height = 180;
-    john.weight = 220;
+    human obj;
+    obj.height = 180;
+    obj.weight = 220;
 
     std::cout << john.height << std::endl;
 

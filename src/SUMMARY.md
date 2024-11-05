@@ -13,3 +13,5 @@
 - [Templates](./chapter_9.md)
 - [Lambda Functions](./chapter_10.md)
 - [Structs and Classes](./chapter_11.md)
+- [Constructors & Destructors](./chapter_12.md)
+- [Link Lists](./chapter_13.md)
